@@ -5,19 +5,23 @@ import CustList from "./components/CustList";
 import CustomerList from "./components/CustomerList";
 
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
   return (
-    <div>
-      <Uppernav isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-
-      <div className="flex flex-row">
+    <div className="">
+      <div className="flex flex-row bg-warmGray-50 no-scrollbar">
         <Sidebar isSidebarOpen={isSidebarOpen} />
-        <CustList isSidebarOpen={isSidebarOpen} />
+        <div className="w-full max-h-screen">
+          <Uppernav
+            isSidebarOpen={isSidebarOpen}
+            toggleSidebar={toggleSidebar}
+          />
+          <CustList isSidebarOpen={isSidebarOpen} />
+        </div>
       </div>
       {/* <CustomerList isSidebarOpen={isSidebarOpen} /> */}
     </div>

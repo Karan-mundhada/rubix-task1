@@ -103,9 +103,9 @@ const CustList = ({ isSidebarOpen }) => {
     setChecked(newChecked);
   };
   return (
-    <div className={`flex flex-row h-screen ml-2 mr-2 p-2 mt-16 ml-4  w-full`}>
-      <div className="flex flex-row w-full h-screen bg-white text-primary px-4">
-        <div className="w-1/3">
+    <div className={`flex flex-row  ml-2 mr-2 p-2 mt-4 ml-4  w-full`}>
+      <div className="flex flex-row w-full   text-primary px-4">
+        <div className="w-1/3 bg-white p-2 rounded-sm">
           <div className="flex justify-between items-center pt-4 pb-2">
             <div>
               <h1 className="text-xl font-bold">Customers</h1>
@@ -138,14 +138,20 @@ const CustList = ({ isSidebarOpen }) => {
                 }`}
                 onClick={() => handleCustomerClick(customer)}
               >
-                <div className="bg-violet-300 p-2 rounded-full px-4">
-                  <p className="text-base text-violet-700 font-semibold">
-                    {customer.name[0].toUpperCase()}
-                  </p>
-                </div>
-                <div className="flex flex-col -ml-4">
-                  <p className="text-black text-lg">{customer.name}</p>
-                  <p className="text-black text-gray-400">{customer.amount}</p>
+                <div className="flex flex-row">
+                  <div className="bg-violet-300 p-1 px-5 flex justify-center items-center mr-3 rounded-full ">
+                    <p className="text-base text-lg text-violet-700 font-semibold">
+                      {customer.name[0].toUpperCase()}
+                    </p>
+                  </div>
+                  <div className="flex flex-col ">
+                    <p className="text-black text-lg line-clamp-1">
+                      {customer.name}
+                    </p>
+                    <p className="text-black text-gray-400">
+                      {customer.amount}
+                    </p>
+                  </div>
                 </div>
                 <Checkbox
                   edge="end"
@@ -157,7 +163,10 @@ const CustList = ({ isSidebarOpen }) => {
           </ul>
         </div>
         {selectedCustomer && (
-          <CustomerDetails className="w-2/3" customer={selectedCustomer} />
+          <CustomerDetails
+            className="w-2/3 p-2 bg-white rounded-sm"
+            customer={selectedCustomer}
+          />
         )}
         {/* <div className="mt-auto flex justify-end py-2">
           <button

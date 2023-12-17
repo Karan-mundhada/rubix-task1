@@ -32,15 +32,15 @@ const Sidebar = ({ isSidebarOpen }) => {
 
   return (
     <div
-      className={` flex top-0 left-0 h-screen shadow-lg ${
+      className={` flex flex-col  top-0 left-0 h-screen shadow-lg bg-white ${
         isSidebarOpen ? "w-1/6" : "w-1/12"
       }`}
     >
-      <div className="items-center bg-white text-violet-600 justify-between px-4 py-3">
+      <div className="items-center   bg-white text-violet-600 justify-between px-4 py-3">
         <h1 className="text-3xl font-bold">Rubix</h1>
       </div>
       <div
-        className={`bg-white text-gray fixed top-16 transition-all duration-300 ${
+        className={`bg-white text-gray  top-16 transition-all duration-300 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-1/6"
         }`}
       >

@@ -16,7 +16,7 @@ const CustomerDetails = ({ customer }) => {
   const [selectedScreen, setSelectedScreen] = useState("insights");
 
   return (
-    <div className="flex px-4 py-2 top-10 left-1/2 flex-col w-full">
+    <div className="flex px-4 py-2 bg-white rounded-sm top-10 left-1/2 flex-col w-full mt-2 ml-2">
       <div className="flex justify-between items-center mb-4 border-b-violet-500 pb-4 border-b-2">
         <div className="border-b-violet-500 border-r-2 pr-4">
           <h2 className="tex text-lg t-base font-semibold">{customer.name}</h2>
