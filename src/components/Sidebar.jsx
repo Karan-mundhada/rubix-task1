@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useState } from "react";
 import {
   Home,
   Users,
@@ -21,9 +21,9 @@ const Sidebar = ({ isSidebarOpen }) => {
     { label: "Documents", icon: <FileText size={20} />, link: "#" },
     { label: "Compliance", icon: <Shield size={20} />, link: "#" },
     { label: "Help", icon: <HelpCircle size={20} />, link: "#" },
-    ];
-    
-  const [searchTerm, setSearchTerm] = useState('');
+  ];
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -32,7 +32,7 @@ const Sidebar = ({ isSidebarOpen }) => {
 
   return (
     <div
-      className={` flex fixed top-0 left-0 h-screen ${
+      className={` flex top-0 left-0 h-screen shadow-lg ${
         isSidebarOpen ? "w-1/6" : "w-1/12"
       }`}
     >
@@ -44,9 +44,9 @@ const Sidebar = ({ isSidebarOpen }) => {
           isSidebarOpen ? "translate-x-0" : "-translate-x-1/6"
         }`}
       >
-        <div className="p-4 mt-4">
+        <div className="p-4 ">
           {isSidebarOpen ? (
-            <div className="flex items-center border border-gray-300 rounded-3xl">
+            <div className="flex items-center border border-gray-300 rounded-3xl ml-3 px-2">
               <div className="items-center">
                 <Search size={20} className="mr-2" />
               </div>
@@ -55,11 +55,11 @@ const Sidebar = ({ isSidebarOpen }) => {
                 placeholder="Search menu"
                 value={searchTerm}
                 onChange={handleSearch}
-                className="p-2 focus:outline-none"
+                className="p-2 w-28 focus:outline-none bg-transparent"
               />
             </div>
-                  ) : (
-                          <></>
+          ) : (
+            <></>
           )}
 
           {sidebarItems.map((item, index) => (
@@ -86,4 +86,4 @@ const Sidebar = ({ isSidebarOpen }) => {
   );
 };
 
-export default Sidebar
+export default Sidebar;

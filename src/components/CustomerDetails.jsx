@@ -1,83 +1,73 @@
-import React from 'react';
+import React, { useState } from "react";
+import { MdEvent } from "react-icons/md";
+import Insights from "./CustomerDetails/insights";
+import Screen3 from "./CustomerDetails/screen3";
+import Screen2 from "./CustomerDetails/screen2";
+import Screen4 from "./CustomerDetails/screen4";
+import Screen5 from "./CustomerDetails/screen5";
 
-const CustomerDetails = ({ customer }) => (
-  <div className="px-4 py-2 top-10 left-1/2 flex">
-    <div className="flex justify-between items-center mb-4">
-      <h2 className="tex t-base font-semibold">{customer.name}</h2>
-      <div className="flex items-center space-x-2">
-        <div className={`bg-${customer.status === 'Active' ? 'primary' : 'gray'} text-white px-2 py-1 rounded-full text-sm`}>{customer.status}</div>
-        <span className="text-gray-400 text-sm">{customer.date}</span>
+import { ImAttachment } from "react-icons/im";
+import { RxCrossCircled } from "react-icons/rx";
+import { PiShareNetworkLight } from "react-icons/pi";
+import { PiDotsThreeCircleLight } from "react-icons/pi";
+import { Edit } from "react-feather";
+
+const CustomerDetails = ({ customer }) => {
+  const [selectedScreen, setSelectedScreen] = useState("insights");
+
+  return (
+    <div className="flex px-4 py-2 top-10 left-1/2 flex-col w-full">
+      <div className="flex justify-between items-center mb-4 border-b-violet-500 pb-4 border-b-2">
+        <div className="border-b-violet-500 border-r-2 pr-4">
+          <h2 className="tex text-lg t-base font-semibold">{customer.name}</h2>
+          <h6>ID: {customer.id}</h6>
+        </div>
+
+        <div className="flex flex-row">
+          <button className="p-2 px-4 rounded-full bg-violet-600 text-white justify-between flex flex-row items-center">
+            <MdEvent />
+            <p className="ml-2">From</p>
+          </button>
+          <button className="mx-4 p-2 px-4 rounded-full bg-transparent border-2 border-violet-300 text-black justify-between flex flex-row items-center">
+            <MdEvent />
+            <p className="ml-2">To</p>
+          </button>
+
+          <div className="flex flex-row">
+            <button className="bg-secondary p-2 px-4 mx-2 rounded-xl shadow-lg">
+              <Edit size={20} />
+            </button>
+            <button className="bg-secondary p-2 px-4 mx-2 rounded-xl shadow-lg">
+              <ImAttachment size={20} />
+            </button>
+            <button className="bg-secondary p-2 px-4 mx-2 rounded-xl shadow-lg">
+              <RxCrossCircled size={20} />
+            </button>
+            <button className="bg-secondary p-2 px-4 mx-2 rounded-xl shadow-lg">
+              <PiShareNetworkLight size={20} />
+            </button>
+            <button className="border-secondary border-2 p-2 px-3 mx-2 rounded-full shadow-lg">
+              <PiDotsThreeCircleLight size={20} />
+            </button>
+          </div>
+        </div>
       </div>
+
+      <div className="mx-8 px-8 flex flex-row justify-between items-center border-b-2 pb-2 border-violet-300">
+        <div onClick={() => setSelectedScreen("insights")}>Insights</div>
+        <div onClick={() => setSelectedScreen("screen2")}>Screen 2</div>
+        <div onClick={() => setSelectedScreen("screen3")}>Screen 3</div>
+        <div onClick={() => setSelectedScreen("screen4")}>Screen 4</div>
+        <div onClick={() => setSelectedScreen("screen5")}>Screen 5</div>
+      </div>
+
+      {selectedScreen == "insights" && <Insights />}
+      {selectedScreen == "screen2" && <Screen2 />}
+      {selectedScreen == "screen3" && <Screen3 />}
+      {selectedScreen == "screen4" && <Screen4 />}
+      {selectedScreen == "screen5" && <Screen5 />}
     </div>
-    <div className="flex flex-row space-x-4 mb-4">
-      <div className="flex flex-col w-1/2">
-        <p className="text-sm font-semibold">Contact</p>
-        <p className="text-xs text-gray-400">{customer.contact.name}</p>
-        <p className="text-xs text-gray-400">{customer.contact.email}</p>
-        <p className="text-xs text-gray-400">{customer.contact.phone}</p>
-      </div>
-      <div className="flex flex-col w-1/2">
-        <p className="text-sm font-semibold">Address</p>
-        <p className="text-xs text-gray-400">{customer.address.street}</p>
-        <p className="text-xs text-gray-400">{customer.address.city}</p>
-        <p className="text-xs text-gray-400">{customer.address.country}</p>
-      </div>
-    </div>
-    <div className="flex flex-col space-y-4">
-      <div className="flex justify-between items-center">
-        <p className="text-sm font-semibold">Amount</p>
-        <p className="text-sm font-semibold text-accent">{customer.amount}</p>
-      </div>
-      <div className="flex justify-between items-center">
-        <p className="text-sm font-semibold">Due Date</p>
-        <p className="text-sm text-gray-400">{customer.due_date}</p>
-      </div>
-      <div className="flex justify-between items-center">
-        <p className="text-sm font-semibold">Payment Method</p>
-        <p className="text-sm text-gray-400">{customer.payment_method}</p>
-      </div>
-      <div className="border-b border-light-gray pb-2">
-        <p className="text-sm font-semibold">Invoice Details</p>
-        <table className="text-xs text-gray-400 mt-2 w-full">
-          <thead>
-            <tr>
-              <th className="px-2 py-1">#</th>
-              <th className="px-2 py-1">Description</th>
-              <th className="px-2 py-1">Quantity</th>
-              <th className="px-2 py-1">Price</th>
-              <th className="px-2 py-1">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {customer.invoice_details.map((item, index) => (
-              <tr key={index}>
-                <td className="px-2 py-1">{item.id}</td>
-                <td className="px-2 py-1">{item.description}</td>
-                <td className="px-2 py-1">{item.quantity}</td>
-                <td className="px-2 py-1">{item.price}</td>
-                <td className="px-2 py-1">{item.total}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="flex justify-end">
-        <button
-          type="button"
-          className="focus:outline-none px-4 py-2 rounded bg-gray-500 text-white mr-2 hover:bg-gray-600"
-        >
-          Button 1 Text
-        </button>
-        {/* Button 2 - Empty placeholder */}
-        <button
-          type="button"
-          className="focus:outline-none px-4 py-2 rounded bg-gray-500 text-white hover:bg-gray-600"
-        >
-          Button 2 Text
-        </button>
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 export default CustomerDetails;

@@ -13,11 +13,12 @@ function App() {
 
   return (
     <div>
-      <Sidebar isSidebarOpen={isSidebarOpen} />
-
       <Uppernav isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
-      <CustList isSidebarOpen={isSidebarOpen} />
+      <div className="flex flex-row">
+        <Sidebar isSidebarOpen={isSidebarOpen} />
+        <CustList isSidebarOpen={isSidebarOpen} />
+      </div>
       {/* <CustomerList isSidebarOpen={isSidebarOpen} /> */}
     </div>
   );

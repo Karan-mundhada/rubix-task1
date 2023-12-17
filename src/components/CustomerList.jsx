@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CustomerDetails from "./CustomerDetails"; // Import details component
 
-const CustomerList = ({isSidebarOpen}) => {
+const CustomerList = ({ isSidebarOpen }) => {
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [customers] = useState([
     {
@@ -85,13 +85,10 @@ const CustomerList = ({isSidebarOpen}) => {
     setSelectedCustomer(customer);
   };
 
-    return (
-      <div
-        className={`flex top-10 h-screen ml-2 mr-2 p-2 fixed ${
-          isSidebarOpen ? "w-1/4 left-64" : "w-1/3 left-36"
-        }`}
-      >
-        <div className="flex flex-col h-screen overflow-y-scroll px-4">
+  return (
+    <div className={`flex top-10 h-screen ml-2 mr-2 p-2 fixed min-w-full`}>
+      <div className="flex flex-row h-screen overflow-y-scroll px-4">
+        <div>
           <div className="flex justify-between items-center pt-4 pb-2">
             <h1 className="text-xl font-bold">Customers</h1>
             <button
@@ -123,10 +120,11 @@ const CustomerList = ({isSidebarOpen}) => {
               </li>
             ))}
           </ul>
-          {selectedCustomer && <CustomerDetails customer={selectedCustomer} />}
         </div>
+        {selectedCustomer && <CustomerDetails customer={selectedCustomer} />}
       </div>
-    );
+    </div>
+  );
 };
 
 export default CustomerList;
