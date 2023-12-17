@@ -1,6 +1,8 @@
 import React from "react";
 import { GoBellFill } from "react-icons/go";
 import { IoMdSettings } from "react-icons/io";
+import { RxHamburgerMenu } from "react-icons/rx";
+
 const Uppernav = ({ isSidebarOpen, toggleSidebar }) => {
   return (
     <div
@@ -12,7 +14,7 @@ const Uppernav = ({ isSidebarOpen, toggleSidebar }) => {
         }`}
         onClick={toggleSidebar}
       >
-        ☰
+        <RxHamburgerMenu size={24} />
       </button>
 
       <div className="flex flex-row items-center">

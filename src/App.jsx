@@ -23,7 +23,6 @@ function App() {
           <CustList isSidebarOpen={isSidebarOpen} />
         </div>
       </div>
-      {/* <CustomerList isSidebarOpen={isSidebarOpen} /> */}
     </div>
   );
 }

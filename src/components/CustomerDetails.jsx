@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { MdEvent } from "react-icons/md";
 import Insights from "./CustomerDetails/insights";
 import Screen3 from "./CustomerDetails/screen3";
 import Screen2 from "./CustomerDetails/screen2";
 import Screen4 from "./CustomerDetails/screen4";
 import Screen5 from "./CustomerDetails/screen5";
 
+import { MdEvent } from "react-icons/md";
 import { ImAttachment } from "react-icons/im";
 import { RxCrossCircled } from "react-icons/rx";
 import { PiShareNetworkLight } from "react-icons/pi";
-import { PiDotsThreeCircleLight } from "react-icons/pi";
+import { TbDots } from "react-icons/tb";
 import { Edit } from "react-feather";
 
 const CustomerDetails = ({ customer }) => {
@@ -33,7 +33,7 @@ const CustomerDetails = ({ customer }) => {
             <p className="ml-2">To</p>
           </button>
 
-          <div className="flex flex-row">
+          <div className="flex flex-row hover:cursor-pointer">
             <button className="bg-secondary p-2 px-4 mx-2 rounded-xl shadow-lg">
               <Edit size={20} />
             </button>
@@ -47,18 +47,18 @@ const CustomerDetails = ({ customer }) => {
               <PiShareNetworkLight size={20} />
             </button>
             <button className="border-secondary border-2 p-2 px-3 mx-2 rounded-full shadow-lg">
-              <PiDotsThreeCircleLight size={20} />
+              <TbDots size={20} />
             </button>
           </div>
         </div>
       </div>
 
-      <div className="mx-8 px-8 flex flex-row justify-between items-center border-b-2 pb-2 border-violet-300">
+      <div className="mx-8 px-8 flex flex-row justify-between items-center hover:cursor-pointer border-b-2 pb-2 border-violet-300">
         <div onClick={() => setSelectedScreen("insights")}>Insights</div>
-        <div onClick={() => setSelectedScreen("screen2")}>Screen 2</div>
-        <div onClick={() => setSelectedScreen("screen3")}>Screen 3</div>
-        <div onClick={() => setSelectedScreen("screen4")}>Screen 4</div>
-        <div onClick={() => setSelectedScreen("screen5")}>Screen 5</div>
+        <div onClick={() => setSelectedScreen("screen2")}>Tab 2</div>
+        <div onClick={() => setSelectedScreen("screen3")}>Tab 3</div>
+        <div onClick={() => setSelectedScreen("screen4")}>Tab 4</div>
+        <div onClick={() => setSelectedScreen("screen5")}>Tab 5</div>
       </div>
 
       {selectedScreen == "insights" && <Insights />}

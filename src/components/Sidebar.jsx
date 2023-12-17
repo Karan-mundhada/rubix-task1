@@ -33,7 +33,7 @@ const Sidebar = ({ isSidebarOpen }) => {
   return (
     <div
       className={` flex flex-col  top-0 left-0 h-screen shadow-lg bg-white ${
-        isSidebarOpen ? "w-1/6" : "w-1/12"
+        isSidebarOpen ? "w-1/5" : "w-1/12"
       }`}
     >
       <div className="items-center   bg-white text-violet-600 justify-between px-4 py-3">
@@ -46,7 +46,7 @@ const Sidebar = ({ isSidebarOpen }) => {
       >
         <div className="p-4 ">
           {isSidebarOpen ? (
-            <div className="flex items-center border border-gray-300 rounded-3xl ml-3 px-2">
+            <div className="flex items-center border m-3 border-gray-300 rounded-3xl ml-3 px-2">
               <div className="items-center">
                 <Search size={20} className="mr-2" />
               </div>

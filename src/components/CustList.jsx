@@ -10,79 +10,26 @@ const CustList = ({ isSidebarOpen }) => {
       id: 1,
       name: "Tata International Limited",
       amount: "$234,868.00",
-      details: "lorem ipsum dolor sit amet...", // Add more details objects here
+      details: "lorem ipsum dolor sit amet...",
       status: "Active",
       date: "2023-12-17",
-      contact: {
-        name: "John Doe",
-        email: "johndoe@example.com",
-        phone: "+1234567890",
-      },
-      address: {
-        street: "123 Main Street",
-        city: "Anytown",
-        country: "USA",
-      },
-      due_date: "2024-01-15",
-      payment_method: "Credit Card",
-      invoice_details: [
-        {
-          id: 1,
-          description: "Item 1",
-          quantity: 2,
-          price: "$10.00",
-          total: "$20.00",
-        },
-        {
-          id: 2,
-          description: "Item 2",
-          quantity: 1,
-          price: "$50.00",
-          total: "$50.00",
-        },
-      ],
     },
     {
       id: 2,
-      name: "HUL International Limited",
-      amount: "$234,868.00",
-      details: "lorem ipsum dolor sit amet...", // Add more details objects here
+      name: "HUL ",
+      amount: "$2348.00",
+      details: "lorem ipsum dolor sit amet...", 
       status: "Active",
       date: "2023-12-17",
-      contact: {
-        name: "John Doe",
-        email: "johndoe@example.com",
-        phone: "+1234567890",
-      },
-      address: {
-        street: "123 Main Street",
-        city: "Anytown",
-        country: "USA",
-      },
-      due_date: "2024-01-15",
-      payment_method: "Credit Card",
-      invoice_details: [
-        {
-          id: 1,
-          description: "Item 1",
-          quantity: 2,
-          price: "$10.00",
-          total: "$20.00",
-        },
-        {
-          id: 2,
-          description: "Item 2",
-          quantity: 1,
-          price: "$50.00",
-          total: "$50.00",
-        },
-      ],
     },
     // Customers here
   ]);
   const [checked, setChecked] = useState(customers);
 
-  const addCustomer = (customer) => {
+    const addCustomer = (customer) => {
+    const maxId = Math.max(...customers.map((c) => c.id), 0);
+
+    customer = { ...customer, id: maxId + 1 };
     setCustomers([...customers, customer]);
   };
 
@@ -103,7 +50,7 @@ const CustList = ({ isSidebarOpen }) => {
     setChecked(newChecked);
   };
   return (
-    <div className={`flex flex-row  ml-2 mr-2 p-2 mt-4 ml-4  w-full`}>
+    <div className={`flex flex-row mr-2 p-2 mt-4 w-full`}>
       <div className="flex flex-row w-full   text-primary px-4">
         <div className="w-1/3 bg-white p-2 rounded-sm">
           <div className="flex justify-between items-center pt-4 pb-2">
@@ -114,16 +61,16 @@ const CustList = ({ isSidebarOpen }) => {
             <div>
               <button
                 type="button"
-                className={`focus:outline-none mr-4 px-2 py-1 rounded-2xl text-lg px-4 text-sm bg-primary text-white `}
+                className={`focus:outline-none mr-4 py-1 rounded-2xl px-4 text-sm bg-primary text-white `}
                 onClick={() =>
-                  addCustomer({ name: "New Customer", amount: "$0.00" })
+                  addCustomer({ name: "New Customer", amount: "$0.00",  })
                 }
               >
                 + New
               </button>
               <button
                 type="button"
-                className={`focus:outline-none px-2 py-1 border-2 border-violet-700 rounded-2xl text-lg px-4 text-sm bg-transparent text-black `}
+                className={`focus:outline-none py-1 border-2 border-violet-700 rounded-2xl px-4 text-sm bg-transparent text-black `}
               >
                 Export
               </button>
@@ -140,7 +87,7 @@ const CustList = ({ isSidebarOpen }) => {
               >
                 <div className="flex flex-row">
                   <div className="bg-violet-300 p-1 px-5 flex justify-center items-center mr-3 rounded-full ">
-                    <p className="text-base text-lg text-violet-700 font-semibold">
+                    <p className="text-lg text-violet-700 font-semibold">
                       {customer.name[0].toUpperCase()}
                     </p>
                   </div>
@@ -168,14 +115,6 @@ const CustList = ({ isSidebarOpen }) => {
             customer={selectedCustomer}
           />
         )}
-        {/* <div className="mt-auto flex justify-end py-2">
-          <button
-            type="button"
-            className="focus:outline-none px-4 py-2 rounded bg-gray-700 text-sm text-white hover:bg-gray-600"
-          >
-            Export
-          </button>
-        </div> */}
       </div>
     </div>
   );
