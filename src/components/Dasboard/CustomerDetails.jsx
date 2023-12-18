@@ -4,6 +4,7 @@ import Screen3 from "./CustomerDetails/screen3";
 import Screen2 from "./CustomerDetails/screen2";
 import Screen4 from "./CustomerDetails/screen4";
 import Screen5 from "./CustomerDetails/screen5";
+import Screen6 from "./CustomerDetails/screen6";
 
 import { MdEvent } from "react-icons/md";
 import { ImAttachment } from "react-icons/im";
@@ -17,18 +18,18 @@ const CustomerDetails = ({ customer }) => {
 
   return (
     <div className="flex px-4 py-2 bg-white rounded-sm top-10 left-1/2 flex-col w-full mt-2 ml-2">
-      <div className="flex justify-between items-center mb-4 border-b-violet-500 pb-4 border-b-2">
-        <div className="border-b-violet-500 border-r-2 pr-4">
+      <div className="flex justify-between items-center mb-4 border-primary pb-4 border-b-2">
+        <div className="border-primary border-r-2 pr-4">
           <h2 className="tex text-lg t-base font-semibold">{customer.name}</h2>
           <h6>ID: {customer.id}</h6>
         </div>
 
         <div className="flex flex-row">
-          <button className="p-2 px-4 rounded-full bg-violet-600 text-white justify-between flex flex-row items-center">
+          <button className="p-2 px-4 rounded-full bg-primary text-white justify-between flex flex-row items-center">
             <MdEvent />
             <p className="ml-2">From</p>
           </button>
-          <button className="mx-4 p-2 px-4 rounded-full bg-transparent border-2 border-violet-300 text-black justify-between flex flex-row items-center">
+          <button className="mx-4 p-2 px-4 rounded-full bg-transparent border-2 border-secondary text-black justify-between flex flex-row items-center">
             <MdEvent />
             <p className="ml-2">To</p>
           </button>
@@ -54,11 +55,42 @@ const CustomerDetails = ({ customer }) => {
       </div>
 
       <div className="mx-8 px-8 flex flex-row justify-between items-center hover:cursor-pointer border-b-2 pb-2 border-violet-300">
-        <div onClick={() => setSelectedScreen("insights")}>Insights</div>
-        <div onClick={() => setSelectedScreen("screen2")}>Tab 2</div>
-        <div onClick={() => setSelectedScreen("screen3")}>Tab 3</div>
-        <div onClick={() => setSelectedScreen("screen4")}>Tab 4</div>
-        <div onClick={() => setSelectedScreen("screen5")}>Tab 5</div>
+        <div
+          className="hover:scale-110"
+          onClick={() => setSelectedScreen("insights")}
+        >
+          Insights
+        </div>
+        <div
+          className="hover:scale-110"
+          onClick={() => setSelectedScreen("screen2")}
+        >
+          Tab 2
+        </div>
+        <div
+          className="hover:scale-110"
+          onClick={() => setSelectedScreen("screen3")}
+        >
+          Tab 3
+        </div>
+        <div
+          className="hover:scale-110"
+          onClick={() => setSelectedScreen("screen4")}
+        >
+          Tab 4
+        </div>
+        <div
+          className="hover:scale-110"
+          onClick={() => setSelectedScreen("screen5")}
+        >
+          Tab 5
+        </div>
+        <div
+          className="hover:scale-110"
+          onClick={() => setSelectedScreen("screen6")}
+        >
+          Tab 6
+        </div>
       </div>
 
       {selectedScreen == "insights" && <Insights />}
@@ -66,6 +98,7 @@ const CustomerDetails = ({ customer }) => {
       {selectedScreen == "screen3" && <Screen3 />}
       {selectedScreen == "screen4" && <Screen4 />}
       {selectedScreen == "screen5" && <Screen5 />}
+      {selectedScreen == "screen6" && <Screen6 />}
     </div>
   );
 };

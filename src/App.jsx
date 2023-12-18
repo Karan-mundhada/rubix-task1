@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import Dasboard from "./components/Dasboard/Dasboard";
 import Sidebar from "./components/Sidebar";
-import Uppernav from "./components/uppernav";
-import CustList from "./components/CustList";
-import CustomerList from "./components/CustomerList";
+import Uppernav from "./components/Uppernav";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -10,9 +9,9 @@ function App() {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
+  
   return (
-    <div className="">
+    <>
       <div className="flex flex-row bg-warmGray-50 no-scrollbar">
         <Sidebar isSidebarOpen={isSidebarOpen} />
         <div className="w-full max-h-screen">
@@ -20,10 +19,10 @@ function App() {
             isSidebarOpen={isSidebarOpen}
             toggleSidebar={toggleSidebar}
           />
-          <CustList isSidebarOpen={isSidebarOpen} />
+          <Dasboard isSidebarOpen={isSidebarOpen} />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

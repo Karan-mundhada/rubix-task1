@@ -14,8 +14,8 @@ import {
 const Sidebar = ({ isSidebarOpen }) => {
   const sidebarItems = [
     { label: "Dashboard", icon: <Home size={20} />, link: "#" },
-    { label: "Accounts", icon: <Users size={20} />, link: "#" },
-    { label: "Export", icon: <Download size={20} />, link: "#" },
+    { label: "Accounts", icon: <Users size={20} />, link: "Accounts" },
+    { label: "Export", icon: <Download size={20} />, link: "Export" },
     { label: "Import", icon: <Upload size={20} />, link: "#" },
     { label: "Product", icon: <Box size={20} />, link: "#" },
     { label: "Documents", icon: <FileText size={20} />, link: "#" },
@@ -36,7 +36,7 @@ const Sidebar = ({ isSidebarOpen }) => {
         isSidebarOpen ? "w-1/5" : "w-1/12"
       }`}
     >
-      <div className="items-center   bg-white text-violet-600 justify-between px-4 py-3">
+      <div className="items-center bg-white text-violet-600 justify-between px-4 py-3">
         <h1 className="text-3xl font-bold">Rubix</h1>
       </div>
       <div

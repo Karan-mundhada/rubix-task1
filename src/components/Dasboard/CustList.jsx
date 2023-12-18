@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
-import CustDetails from "./CustDetails";
+// import CustDetails from "./CustDetails";
 import CustomerDetails from "./CustomerDetails";
 
 const CustList = ({ isSidebarOpen }) => {
@@ -16,7 +16,39 @@ const CustList = ({ isSidebarOpen }) => {
     },
     {
       id: 2,
-      name: "HUL ",
+      name: "HUL Corp",
+      amount: "$2348.00",
+      details: "lorem ipsum dolor sit amet...", 
+      status: "Active",
+      date: "2023-12-17",
+    },
+    {
+      id: 3,
+      name: "PNG corp",
+      amount: "$234,868.00",
+      details: "lorem ipsum dolor sit amet...",
+      status: "Active",
+      date: "2023-12-17",
+    },
+    {
+      id: 4,
+      name: "JSW",
+      amount: "$2348.00",
+      details: "lorem ipsum dolor sit amet...", 
+      status: "Active",
+      date: "2023-12-17",
+    },
+    {
+      id: 5,
+      name: "List item",
+      amount: "$234,868.00",
+      details: "lorem ipsum dolor sit amet...",
+      status: "Active",
+      date: "2023-12-17",
+    },
+    {
+      id: 6,
+      name: "List item",
       amount: "$2348.00",
       details: "lorem ipsum dolor sit amet...", 
       status: "Active",
@@ -26,7 +58,7 @@ const CustList = ({ isSidebarOpen }) => {
   ]);
   const [checked, setChecked] = useState(customers);
 
-    const addCustomer = (customer) => {
+  const addCustomer = (customer) => {
     const maxId = Math.max(...customers.map((c) => c.id), 0);
 
     customer = { ...customer, id: maxId + 1 };
@@ -70,7 +102,7 @@ const CustList = ({ isSidebarOpen }) => {
               </button>
               <button
                 type="button"
-                className={`focus:outline-none py-1 border-2 border-violet-700 rounded-2xl px-4 text-sm bg-transparent text-black `}
+                className={`focus:outline-none py-1 border-2 border-primary rounded-2xl px-4 text-sm bg-transparent text-black `}
               >
                 Export
               </button>
@@ -81,13 +113,13 @@ const CustList = ({ isSidebarOpen }) => {
               <li
                 key={customer.name}
                 className={`flex justify-between items-center border-b border-gray-700 py-2 px-2 hover:bg-secondary ${
-                  selectedCustomer === customer ? "bg-white text-primary" : ""
+                  selectedCustomer === customer ? "bg-warmGray-100 text-primary" : ""
                 }`}
                 onClick={() => handleCustomerClick(customer)}
               >
                 <div className="flex flex-row">
-                  <div className="bg-violet-300 p-1 px-5 flex justify-center items-center mr-3 rounded-full ">
-                    <p className="text-lg text-violet-700 font-semibold">
+                  <div className="bg-secondary p-1 px-5 flex justify-center items-center mr-3 rounded-full ">
+                    <p className="text-lg text-primary font-semibold">
                       {customer.name[0].toUpperCase()}
                     </p>
                   </div>
